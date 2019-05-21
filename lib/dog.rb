@@ -27,11 +27,10 @@ class Dog
   
   def save
     sql = <<-SQL
-      INSERT INTO dogs (name, breed)
+      INSERT INTO songs (name, album)
       VALUES (?, ?)
     SQL
-    DB[:conn].execute(sql, self.name, self.breed)
-    @id = DB[:conn].execute("SELECT last_insert_rowid() FROM dogs")[0][0]
+    DB[:conn].execute(sql, self.name, self.album)
   end
   
 end
