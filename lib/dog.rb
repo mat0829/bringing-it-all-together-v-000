@@ -34,7 +34,7 @@ class Dog
       INSERT INTO dogs (name, breed) VALUES (?, ?)
     SQL
 
-    DB[:connection].execute(sql, self.name, self.breed)
+    DB[:conn].execute(sql, self.name, self.breed)
   end
   
 end
