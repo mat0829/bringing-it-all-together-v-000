@@ -56,13 +56,13 @@ class Dog
     self.new(id: id, name: name, breed: breed)
   end
   
-  def self.find_or_create_by(name:, album:)
-    song = DB[:conn].execute("SELECT * FROM songs WHERE name = ? AND album = ?", name, album)
+  def self.find_or_create_by(name:, breed:)
+    song = DB[:conn].execute("SELECT * FROM songs WHERE name = ? AND breed = ?", name, breed)
     if !song.empty?
       song_data = song[0]
       song = Song.new(song_data[0], song_data[1], song_data[2])
     else
-      song = self.create(name: name, album: album)
+      song = self.create(name: name, breed: breed)
     end
     song
   end 
