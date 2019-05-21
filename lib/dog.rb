@@ -25,33 +25,4 @@ class Dog
     DB[:conn].execute(sql)
   end
   
-    def self.create(name:, breed:)
-    dog = Dog.new(name, breed)
-    dog.save
-    dog
-  end
- 
-  def self.find_by_id(id)
-    sql = "SELECT * FROM dogs WHERE id = ?"
-    result = DB[:conn].execute(sql, id)[0]
-    Dog.new(result[0], result[1], result[2])
-  end
- 
-  def update
-    sql = "UPDATE dogs SET name = ?, breed = ? WHERE id = ?"
-    DB[:conn].execute(sql, self.name, self.breed, self.id)
-  end
-end
-
-  def self.find_or_create_by(name:, breed:)
-    dog = DB[:conn].execute("SELECT * FROM dogs WHERE name = ? AND breed = ?", name, breed)
-    if !dog.empty?
-      dog_data = song[0]
-      dog = Dog.new(dog_data[0], dogg_data[1], dog_data[2])
-    else
-      dog = self.create(name: name, breed: breed)
-    end
-      dog
-  end 
-  
 end
