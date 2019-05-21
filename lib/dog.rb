@@ -30,9 +30,8 @@ class Dog
   end
   
   def insert
-    # I need a database!!!!
     sql = <<-SQL
-      INSERT INTO rooms (title, date_created, price, url) VALUES (?, ?, ?, ?)
+      INSERT INTO dogs (name, breed) VALUES (?, ?)
     SQL
 
     DB[:connection].execute(sql, self.title, self.date_created, self.price, self.url)
