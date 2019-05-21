@@ -25,16 +25,23 @@ class Dog
     DB[:conn].execute(sql)
   end
   
-  def save
-    insert
+    def self.create(name:, breed:)
+    dog = Dog.new(name, breed)
+    dog.save
+    dog
+  end
+ 
+  def self.find_by_id(id)
+    sql = "SELECT * FROM songs WHERE id = ?"
+    result = DB[:conn].execute(sql, id)[0]
+    Song.new(result[0], result[1], result[2])
+  end
+ 
+  def update
+    sql = "UPDATE songs SET name = ?, album = ? WHERE id = ?"
+    DB[:conn].execute(sql, self.name, self.album, self.id)
   end
   
-  def insert
-    sql = <<-SQL
-      INSERT INTO dogs (name, breed) VALUES (?, ?)
-    SQL
-
-    DB[:conn].execute(sql, self.name, self.breed)
-  end
+end
   
 end
