@@ -36,6 +36,10 @@ class Dog
       self
   end
   
-  
+  def self.create(name:, breed:)
+    dog = Song.new(name, breed)
+    dog.save
+    dog
+  end
   
 end
