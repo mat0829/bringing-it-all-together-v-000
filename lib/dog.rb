@@ -56,4 +56,6 @@ class Dog
     self.new(id: id, name: name, breed: breed)
   end
   
+  
+  
 end
