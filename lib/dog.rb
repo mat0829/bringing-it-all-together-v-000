@@ -27,10 +27,10 @@ class Dog
   
   def save
     sql = <<-SQL
-      INSERT INTO songs (name, album)
+      INSERT INTO songs (name, breed)
       VALUES (?, ?)
     SQL
-    DB[:conn].execute(sql, self.name, self.album)
+    DB[:conn].execute(sql, self.name, self.breed)
   end
   
 end
