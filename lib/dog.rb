@@ -40,9 +40,9 @@ class Dog
   end
   
   def self.create(name:, breed:)
-    song = Song.new(name, breed)
-    song.save
-    song
+    dog = Song.new(name, breed)
+    dog.save
+    dog
   end
   
 end
