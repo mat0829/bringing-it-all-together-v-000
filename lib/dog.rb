@@ -29,4 +29,13 @@ class Dog
     insert
   end
   
+  def insert
+    # I need a database!!!!
+    sql = <<-SQL
+      INSERT INTO rooms (title, date_created, price, url) VALUES (?, ?, ?, ?)
+    SQL
+
+    DB[:connection].execute(sql, self.title, self.date_created, self.price, self.url)
+  end
+  
 end
